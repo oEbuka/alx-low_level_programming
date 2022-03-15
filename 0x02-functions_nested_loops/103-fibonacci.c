@@ -1,24 +1,20 @@
-#include "_putchar.h"
+#include <stdio.h>
+
 /**
- *main - print first 50 fibonacci
- *
- *Return: 0 always.
+ * main - prints sum of fibo numbers under 4,000,000
+ * Return: 0
  */
 int main(void)
 {
-	long int i, x = 1, y = 2, sum = 0, tSum = 0;
+	long int f1 = 1, f2 = 2, sum = f2, tmp;
 
-	for (i = 0; i < 49; i++)
+	while (f2 < 4000000)
 	{
-		if ((y % 2 == 0) && (y <= 4000000))
-		{
-			tSum = tSum + y;
-		}
-		sum = x + y;
-		x = y;
-		y = sum;
-
+		tmp = f1 + f2;
+		f1 = f2;
+		f2 = tmp;
+		sum += (f2 % 2 == 0) ? f2 : 0;
 	}
-	printf("%ld\n", tSum);
+	printf("%li\n", sum);
 	return (0);
 }

@@ -1,24 +1,30 @@
 #include "_putchar.h"
-
+#include <stdio.h>
 /**
- * main - Prints the add of the Fibonacci numbers
- *
- * Return: Always 0.
+ * main - prints first 50 numbers of the fibonacci sequence
+ * Return: 0
  */
 int main(void)
 {
-	int c;
-	long int n1, n2, fn;
+	int i, n;
+	long f1, f2, next;
 
-	n1 = 1;
-	n2 = 2;
-	printf("%ld, %ld", n1, n2);
-	for (c = 0; c < 48; c++)
+	f1 = 1;
+	f2 = 2;
+	n = 50;
+
+	for (i = 0; i < n; i++)
 	{
-		fn = n1 + n2;
-		printf(", %ld", fn);
-		n1 = n2;
-		n2 = fn;
+		if (i == 49)
+		{
+			printf("%lu", f1);
+		} else
+		{
+			printf("%lu, ", f1);
+			next = f1 + f2;
+			f1 = f2;
+			f2 = next;
+		}
 	}
 	printf("\n");
 	return (0);
