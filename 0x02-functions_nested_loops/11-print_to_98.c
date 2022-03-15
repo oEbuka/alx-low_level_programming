@@ -1,38 +1,26 @@
-#include "_putchar.h"
-
+#include <stdio.h>
 
 /**
- * print_to_98 - Check Holberton
- * @n: A input integer
- * Description: function that prints all natural numbers
- * from n to 98, followed by a new line.
- * Return: Nothing
+ * print_to_98 - prints every number from n to 98
+ * @n: starting number
  */
 void print_to_98(int n)
 {
+
+	int i;
+
 	if (n <= 98)
 	{
-		for (; n <= 98; n++)
+		for (i = n; i < 98; i++)
 		{
-			printf("%d", n);
-
-			if (n == 98)
-				continue;
-			printf(", ");
+			printf("%i, ", i);
 		}
-		printf("\n");
-	}
-	else
+	} else
 	{
-		for (; n >= 98; n--)
+		for (i = n; i > 98; i--)
 		{
-			printf("%d", n);
-
-			if (n == 98)
-				continue;
-			printf(", ");
+			printf("%i, ", i);
 		}
-		printf("\n");
 	}
+	printf("98\n");
 }
-
