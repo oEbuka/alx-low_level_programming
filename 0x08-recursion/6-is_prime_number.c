@@ -1,29 +1,34 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * funct_prime - Allows operation of _sqrt_recursion
- * @x: type int
- * @y: type int operator
- * Return: sqrt int or -1 if not int
+ * is_prime - detects if an input number is a prime number.
+ * @n: input number.
+ * @c: iterator.
+ * Return: 1 if n is a prime number. 0 if n is not a prime number.
  */
-
-int funct_prime(int x, int y)
+int is_prime(unsigned int n, unsigned int c)
 {
-	if ((y * y) == x || x < 0)
-		return (0);
-	else if ((y * y) > x)
-		return (1);
-	else
-		return (funct_prime(x, (y + 1)));
+	if (n % c == 0)
+	{
+		if (n == c)
+			return (1);
+		else
+			return (0);
+	}
+	return (0 + is_prime(n, c + 1));
 }
-
 /**
- * is_prime_number - function that returns the natural sqr root number.
- * @n: type int
- * Return: 1 if input is integer otherwise is 0
+ * is_prime_number - detects if an input number is a prime number.
+ * @n: input number.
+ * Return: 1 if n is a prime number. 0 if n is not a prime number.
  */
 int is_prime_number(int n)
 {
-	return (funct_prime(n, 0));
-} 
+	if (n == 0)
+		return (0);
+	if (n < 0)
+		return (0);
+	if (n == 1)
+		return (0);
+	return (is_prime(n, 2));
+}
